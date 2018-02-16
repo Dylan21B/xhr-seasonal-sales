@@ -10,6 +10,7 @@ function dataProComplete(event){
     if(event.target.status === 200){
         let bigData = JSON.parse(event.target.responseText);
         console.log("data", bigData);
+        console.log(bigData);
     }else{
         console.log("Check yo self!");
     }
@@ -31,8 +32,8 @@ dataCategories.addEventListener("error", dataRequestFailed);
 function dataRequestComplete(event) {
     console.log("categories have loaded");
     let catData = JSON.parse(event.target.responseText);
-    console.log("catData", catData);
-    showData(catData);
+    console.log("catData", catData.categories);
+    showData(catData.categories);
 }
 function dataRequestFailed(event){
     console.log("this data failed to load", event);
@@ -43,6 +44,7 @@ function showData(taco) {        // Create function to display to DOM
     let productsData = '';
     let item;
     for(item in taco){
+        console.log(item, "item");
         let productsItem = taco[item];
          productsData += `<div><h2> ${productsItem.name}: ${productsItem.price}: ${productsItem.category_id}</h2></div>`
     };
@@ -50,5 +52,5 @@ function showData(taco) {        // Create function to display to DOM
     console.log("here are the products");
 }
 
-dataProducts.open("GET", "products.json");
-dataProducts.send();
+dataCategories.open("GET", "categories.json");
+dataCategories.send();
