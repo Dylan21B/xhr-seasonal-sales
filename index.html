@@ -5,11 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>XHR Seasonal Sales</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="seasonal-sales.js"></script>
 </head>
 <body>
-    
+    <h1>Seasonal Sales</h1>
+
+    <select name="Seasons" id="dropDown">
+        <option value="1">Winter</option>
+        <option value="2">Autumn</option>
+        <option value="3">Spring</option>
+       </select>
+
+       <button id="season-btn">Check Price</button>
+
 <div id="all-products"> </div>
+
+<div id="show-grid"></div>
+
+<script src="seasonal-sales.js"></script>
 
 </body>
 </html>
